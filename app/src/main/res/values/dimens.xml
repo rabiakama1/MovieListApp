@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_view_content_padding_horizontal">16dp</dimen>
+    <dimen name="card_view_content_padding_vertical">8dp</dimen>
+    <dimen name="toolbar_movie_image_height">200dp</dimen>
+    <dimen name="layout_margin">16dp</dimen>
+    <dimen name="toolbar_margin">24dp</dimen>
+    <dimen name="card_view_radius_default">8dp</dimen>
+    <dimen name="card_view_elevation_default">2dp</dimen>
+    <dimen name="slider_height">256dp</dimen>
+    <dimen name="card_view_height">136dp</dimen>
+    <dimen name="list_image_height">104dp</dimen>
+</resources>

@@ -1,0 +1,104 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.mobilliumcase"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+            Properties properties = new Properties()
+            properties.load(project.rootProject.file('local.properties').newDataInputStream())
+            def accessToken = properties.getProperty('movieAccessToken')
+            def serverUrl = properties.getProperty('movieUrl')
+            def posterUrl = properties.getProperty("BACK_DROP_URL")
+            buildConfigField("String", "API_TOKEN", accessToken)
+            buildConfigField("String", "BASE_URL", serverUrl)
+            buildConfigField("String","IMAGE_URL",posterUrl)
+        }
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // UI
+    implementation "androidx.recyclerview:recyclerview:$recyclerView_Version"
+    implementation "androidx.cardview:cardview:$cardView_Version"
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation "com.google.android.material:material:$material_Version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayout_Version"
+    implementation "com.github.bumptech.glide:glide:$glide_Version"
+    implementation("androidx.paging:paging-runtime:$paging_version")
+    implementation "androidx.paging:paging-rxjava2-ktx:$paging_version"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_Version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_Version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_Version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_Version"
+
+    // Asynchronous programming
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_Version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_Version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesKtx_Version"
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesKtx_Version"
+
+    // retrofit support libraries
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_Version"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_Version"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_Version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$retrofit_interceptor_Version"
+
+    // dependency injection
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger2_Version"
+    implementation "com.google.dagger:dagger:$dagger2_Version"
+
+    // slider
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
+
+    implementation 'com.squareup.moshi:moshi:1.13.0'
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
+
+    testImplementation "junit:junit:$junit_Version"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_Version"
+    testImplementation "org.mockito:mockito-inline:$mockito_inline_Version"
+    testImplementation "org.junit.jupiter:junit-jupiter:5.7.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_Version"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+}

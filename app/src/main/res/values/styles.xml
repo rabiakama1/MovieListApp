@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CardView.Item">
+        <item name="android:paddingStart">@dimen/card_view_content_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/card_view_content_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/card_view_content_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/card_view_content_padding_vertical</item>
+    </style>
+
+    <style name="BaseCardView">
+        <item name="cardCornerRadius">@dimen/card_view_radius_default</item>
+        <item name="cardElevation">@dimen/card_view_elevation_default</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+</resources>
