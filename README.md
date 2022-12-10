@@ -1,6 +1,6 @@
 # MovieListApp
 
-It is a Movie Listing application written using TMDB api.
+It is a movie listing application using TMDB API.
 Movies now playing on the first screen appear as a vertical list of movies with upcoming in the slider.
 
 Clicking on the movies opens the detail screen. On this screen, there are data such as release date, description, average of the movie.
